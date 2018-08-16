@@ -1,28 +1,209 @@
-.App {
+@import url("reset.css");
+@font-face {
+  font-family: "Exo 2.0";
+  src: url(./fonts/Exo2.0-Thin.otf); 
+}
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/*.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}*/
+.page {
+  width: 100%;
+  background: #50b4e5;
+  background: url("./img/pattern.png");
+}
+.page__foreground {
+  display: flex;
+  min-height: 100vh;
+  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,.5), rgba(0,0,0,0) 50%, rgba(0,0,0,.5));
+  background-image: -moz-linear-gradient(bottom, rgba(0,0,0,.5), rgba(0,0,0,0) 50%, rgba(0,0,0,.5));
+  background-image: -o-linear-gradient(bottom, rgba(0,0,0,.5), rgba(0,0,0,0) 50%, rgba(0,0,0,.5));
+  background-image: -ms-linear-gradient(bottom, rgba(0,0,0,.5), rgba(0,0,0,0) 50%, rgba(0,0,0,.5));
+  background-image: linear-gradient(to top, rgba(0,0,0,.5), rgba(0,0,0,0) 50%, rgba(0,0,0,.5));
+}
+.page__body {
+  display: flex;
+    flex-direction: column;
+    flex:1;
+}
+.page__title {
+  font-family: "Exo 2.0";
+  font-size: 36px;
   text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 0 #000;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    flex-grow: 1;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.holder__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-grow: 1;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.holder__item {
+  background: url('./img/cat.png') no-repeat;
+  background-position: 63% 180%;
+}
+.card {
+  background-color: #f2f2f2;
+  font-family: "Trebuchet MS", sans-serif;
+  height: 480px;
+/*    width: 28.57142857142857%;*/
+  padding: 0 63px 0 49px;
+  border: 4px solid #1698d9;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  position: relative;
+/*  max-width: 320px;*/
+}
+.card__slogan {
+    display: inline-block;
+}
+.card__slogan,.card__slogan_selectedHover {
+  font-size: 16px;
+  margin: 20px 0px 15px 0;
+  text-indent: -0.5px;
+}
+.card__slogan_selectedHover {
+  color: #e62e7a;
+  display: none;
+}
+.card__slogan,
+.card__numberOfservings,
+.card__gift,
+.card__approval {
+  color: #666;
+}
+.card__numberOfservings,
+.card__gift,
+.card__approval {
+  font-size: 14px;
+}
+.card__caption {
+  font-size: 48px;
+  text-indent: -3.5px;
+}
+.card__subtitle {
+  font-size: 24px;
+  text-indent: -0.5px;
+}
+.card__caption,
+.card__subtitle {
+  color: #000;
+  font-weight: bold;
+  line-height: 1.1;
+}
+.card__numberOfservings {
+  margin-top: 15px;
+}
+.card__numberOfservings,
+.card__gift {
+    display: block;
+    text-indent: -0.5px;
+}
+.card__volume {
+  width: 80px;
+    height: 80px;
+    background-color: #1698d9;
+    border-radius: 50%;
+    z-index: 1;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    text-align: center;
+    color: #fff;
+}
+.card__volumeAmount {
+  font-size: 42px;
+}
+.card__volumeMetrics {
+  display: block;
+  font-size: 21px;
+}
+.card__img {
+  position: absolute;
+    bottom: -93px;
+    left: -22px;
+}
+.wrap {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+.holder__please {
+  display: flex;
+    justify-content: space-around;
+}
+.card__please,.card__please_selected {
+  font-size: 13px;
   color: white;
+  position: absolute;
+  bottom: 0;
+    left: 50%;
+    margin-left: 50%;
+    width: 100%;
+    margin-left: -50%;
+    text-align: center;
+    bottom: -5%;
+    text-shadow: 0 1px 0 #000;
+  bottom: -8%;
+}
+.card__please_selected {
+  display: none;
+}
+.link {
+  color: #1698d9;
+  text-decoration: none;
+    border-bottom: 1px dashed #1698d9;
+    padding-bottom: 1px;
+}
+.card:hover {
+  border-color: #2ea8e6;
+}
+.card:hover .card__volume {
+  background-color: #2ea8e6;
+}
+.card:hover .link {
+  color:#2ea8e6;
+}
+input:checked + label .card {
+  border-color: #d91667;
+}
+input:checked + label .card__volume {
+  background-color: #d91667;
+}
+input:checked + label .card:hover {
+  border-color: #e62e7a;
+}
+input:checked + label .card:hover .card__volume {
+  background-color: #e62e7a;
+}
+input:checked + label .card:hover .card__slogan_selectedHover {
+  display: inline-block;
+}
+input:checked + label .card:hover .card__slogan {
+  display: none;
+}
+input:checked + label .card__please_selected {
+  display: inline-block;
+}
+input:checked + label .card__please {
+  display: none;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
