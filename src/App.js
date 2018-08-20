@@ -44,7 +44,7 @@ const products = [
       card__approval: 'заказчик доволен',
       card__volumeAmount: '2',
       card__volumeMetrics: 'кг',
-      card__please_selected: 'Головы щучьи с чесноком да свежая сёмгушка.',
+      card__please_selected: 'Филе из цыплят с трюфелями в бульоне.',
       holder__itemBackImage: './img/cat.png',
     },
 ];
