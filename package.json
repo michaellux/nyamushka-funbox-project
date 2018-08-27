@@ -6,7 +6,8 @@
     "cn-decorator": "^2.1.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "sass": "^1.13.0"
   },
   "scripts": {
     "start": "react-scripts start",
