@@ -73,7 +73,7 @@ class ProductList extends Component {
         <main className="holder page__body">
           <h1 className="page__title">Ты сегодня покормил кота?</h1>
         
-          <ul className="holder__list">
+          <ul className="holder-list">
             {productComponents}
           </ul> 
         </main>
@@ -87,7 +87,7 @@ class ProductList extends Component {
 class Product extends Component {
   render() {
     return(
-    <div>
+    <div class="holder-list__item">
        <input id={this.props.card__checkbox} type="checkbox" name="first" hidden />
           <label className="card__checkbox" htmlFor={this.props.card__checkbox}>
             <li className="holder__item card">

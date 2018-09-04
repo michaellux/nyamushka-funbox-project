@@ -41,7 +41,7 @@
   margin: auto;
   flex-grow: 1; }
 
-.holder__list {
+.holder-list {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
