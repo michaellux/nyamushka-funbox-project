@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.css';
 import ProductList from './App';
 import cn from 'cn-decorator'
 import registerServiceWorker from './registerServiceWorker';
