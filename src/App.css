@@ -9,7 +9,7 @@
   box-sizing: border-box; }
 
 html {
-  font-size: 16px; }
+  font-size: 100%; }
 
 .page {
   width: 100%;
@@ -51,7 +51,11 @@ html {
   flex-wrap: wrap;
   flex-grow: 1;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  text-align: center; }
+
+.holder-list__item {
+  padding: 0; }
 
 .holder__item {
   background: url("./img/cat.png") no-repeat;
@@ -66,10 +70,13 @@ html {
   -webkit-border-radius: 0.75rem;
   -moz-border-radius: 0.75rem;
   border-radius: 0.75rem;
-  position: relative; }
+  position: relative;
+  list-style-type: none;
+  min-width: 20.41625rem; }
 
 .card__checkbox {
-  font-weight: normal; }
+  font-weight: normal;
+  text-align: initial; }
 
 .card__slogan {
   display: inline-block; }
@@ -208,3 +215,11 @@ input:checked + label .card__please_selected {
 
 input:checked + label .card__please {
   display: none; }
+
+@media (max-width: 992px) {
+  .page__title {
+    margin-top: 1.5rem; }
+  .holder-list {
+    margin-bottom: 1.5rem; }
+  .holder-list__item {
+    margin: 1.5rem auto; } }
