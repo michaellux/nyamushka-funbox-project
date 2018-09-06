@@ -76,7 +76,9 @@ html {
 
 .card__checkbox {
   font-weight: normal;
-  text-align: initial; }
+  text-align: initial;
+  -webkit-clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%, 0 8%);
+  clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%, 0 8%); }
 
 .card__slogan {
   display: inline-block; }
