@@ -2,17 +2,21 @@
   font-family: "Exo 2.0";
   src: url(./fonts/Exo2.0-Thin.otf); 
 }
-*,
 *::before,
 *::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+html {
+  font-size: 16px;
+}
 .page {
   width: 100%;
   background: #50b4e5;
   background: url("./img/pattern.png");
+  color: #000;
+  line-height: 1;
 }
 .page__foreground {
   display: flex;
@@ -25,8 +29,8 @@
 }
 .page__body {
   display: flex;
-    flex-direction: column;
-    flex:1;
+  flex-direction: column;
+  flex:1;
 }
 .page__title {
   font-family: "Exo 2.0";
@@ -46,6 +50,8 @@
   justify-content: space-around;
   flex-wrap: wrap;
   flex-grow: 1;
+  padding: 0;
+  margin: 0;
 }
 .holder__item {
   background: url('./img/cat.png') no-repeat;
@@ -61,6 +67,10 @@
   -moz-border-radius: 0.75rem;
   border-radius: 0.75rem;
   position: relative;
+  list-style-type: none;
+}
+.card__checkbox {
+  font-weight: normal;
 }
 .card__slogan {
     display: inline-block;
@@ -98,14 +108,16 @@
   color: #000;
   font-weight: bold;
   line-height: 1.1;
+  margin: 0;
 }
 .card__numberOfservings {
   margin-top: 0.9375rem;
+  font-weight: normal;
 }
 .card__numberOfservings,
 .card__gift {
     display: block;
-    text-indent: -0,03125rem;
+    text-indent: -0.03125rem;
 }
 .card__volume {
   width: 5rem;
@@ -121,6 +133,7 @@
 }
 .card__volumeAmount {
   font-size: 2.625rem;
+  font-weight: normal;
 }
 .card__volumeMetrics {
   display: block;
