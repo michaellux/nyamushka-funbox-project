@@ -40,7 +40,7 @@ const products = [
       card__numberOfservings: 100,
       card__gift: '5 мышей в подарок',
       card__approval: 'заказчик доволен',
-      card__volumeAmount: '2',
+      card__volumeAmount: '5',
       card__volumeMetrics: 'кг',
       card__please_selected: 'Филе из цыплят с трюфелями в бульоне.',
       holder__itemBackImage: './img/cat.png',
@@ -52,7 +52,8 @@ class ProductList extends Component {
     console.log(products);
     const productComponents = products.map((product) => (
        <Product 
-            key= {'product-' + product.id}
+            key = {'product-' + product.id}
+            id = {product.id}
             card__checkbox = {product.card__checkbox}
             card__slogan = {product.card__slogan}
             card__caption = {product.card__caption}
@@ -71,7 +72,7 @@ class ProductList extends Component {
         <main className="holder page__body">
           <h1 className="page__title">Ты сегодня покормил кота?</h1>
         
-          <ul className="holder-list">
+          <ul className="holder-list row">
             {productComponents}
           </ul> 
         </main>
@@ -85,7 +86,7 @@ class ProductList extends Component {
 class Product extends Component {
   render() {
     return(
-    <div class="holder-list__item">
+    <div className={"holder-list__item " + (this.props.id === 1 ? 'col-md-4 col-sm-12 col-xs-12' : 'col-md-4 col-sm-6 col-xs-12')}>
        <input id={this.props.card__checkbox} type="checkbox" name="first" hidden />
           <label className="card__checkbox" htmlFor={this.props.card__checkbox}>
             <li className="holder__item card">
