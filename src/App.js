@@ -103,9 +103,10 @@ class Product extends Component {
                   <span className="card__volumeMetrics">{this.props.card__volumeMetrics}</span>
                 </div>
                 </div>
-                <span className="card__please">Чего сидишь? Порадуй котэ, <a className="link" href="#">купи.</a></span>
+                <span className="card__please">Чего сидишь? Порадуй котэ, <a className="card__link" href="#">купи.</a></span>
                 <span className="card__please_selected">{this.props.card__please_selected}</span>
-              </li>
+                <div className="card__corner-decoration"></div>
+            </li>
           </label>
     </div>
     )

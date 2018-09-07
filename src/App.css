@@ -72,7 +72,8 @@ html {
   -moz-border-radius: 0.75rem;
   border-radius: 0.75rem;
   position: relative;
-  list-style-type: none; }
+  list-style-type: none;
+  position: relative; }
 
 .card__checkbox {
   font-weight: normal;
@@ -180,31 +181,53 @@ html {
 .card__please_selected {
   display: none; }
 
-.link {
+.card__corner-decoration {
+  width: 3rem;
+  height: 3rem;
+  background-color: #1698d9;
+  position: absolute;
+  left: -0.25rem;
+  top: -0.25rem;
+  -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
+  clip-path: polygon(0 0, 0% 100%, 100% 0); }
+
+.card__link {
   color: #1698d9;
   text-decoration: none;
   border-bottom: 0.0625rem dashed #1698d9;
   padding-bottom: 0.0625rem; }
 
+.card__link:hover,
+.card__link:visited:hover,
+.card__link:visited:active,
+.card__link:visited:focus,
+.card__link:focus {
+  text-decoration: none;
+  color: #2ea8e6;
+  outline: none; }
+
 .card:hover {
   border-color: #2ea8e6; }
 
-.card:hover .card__volume {
+.card:hover .card__volume,
+.card:hover .card__corner-decoration {
   background-color: #2ea8e6; }
 
-.card:hover .link {
+.card:hover .card__link {
   color: #2ea8e6; }
 
 input:checked + label .card {
   border-color: #d91667; }
 
-input:checked + label .card__volume {
+input:checked + label .card__volume,
+input:checked + label .card__corner-decoration {
   background-color: #d91667; }
 
 input:checked + label .card:hover {
   border-color: #e62e7a; }
 
-input:checked + label .card:hover .card__volume {
+input:checked + label .card:hover .card__volume,
+input:checked + label .card:hover .card__corner-decoration {
   background-color: #e62e7a; }
 
 input:checked + label .card:hover .card__slogan_selectedHover {
