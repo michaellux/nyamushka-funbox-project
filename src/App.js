@@ -4,6 +4,7 @@ import './App.css';
 const products = [
     {
       id: 1,
+      status: 'Default',
       card__checkbox: 'fua-gra',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
@@ -15,10 +16,10 @@ const products = [
       card__volumeMetrics: 'кг',
       card__please_selected: 'Печень утки разварная с артишоками.',
       holder__itemBackImage: './img/cat.png',
-
     },
     {
       id: 2,
+      status: 'Selected',
       card__checkbox: 'fish',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
@@ -33,6 +34,7 @@ const products = [
     },
     {
       id: 3,
+      status: 'Disabled',
       card__checkbox: 'chicken',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
@@ -48,12 +50,17 @@ const products = [
 ];
 
 class ProductList extends Component {
+  constructor(props) {
+    super(props)
+  }
+  
   render() {
     console.log(products);
     const productComponents = products.map((product) => (
        <Product 
             key = {'product-' + product.id}
             id = {product.id}
+            status = {product.status}
             card__checkbox = {product.card__checkbox}
             card__slogan = {product.card__slogan}
             card__caption = {product.card__caption}
@@ -84,6 +91,12 @@ class ProductList extends Component {
 
 
 class Product extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      status: props.status
+    };
+  }
   render() {
     return(
     <div className={"holder-list__item " + (this.props.id === 1 ? 'col-md-4 col-sm-12 col-xs-12' : 'col-md-4 col-sm-6 col-xs-12')}>
