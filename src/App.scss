@@ -63,7 +63,7 @@ html {
 .holder-list__item {
   padding: 0;
 }
-.holder__item {
+.holder__item,.holder__item_hoverOn {
   background: url('./img/cat.png') no-repeat;
   background-position: 63% 180%;
 }
@@ -212,14 +212,14 @@ html {
   color: #2ea8e6;
   outline: none;
 }
-.card:hover {
+.card.holder__item_hoverOn:hover {
   border-color: #2ea8e6;
 }
-.card:hover .card__volume,
-.card:hover .card__corner-decoration {
+.card.holder__item_hoverOn:hover .card__volume,
+.card.holder__item_hoverOn:hover .card__corner-decoration {
   background-color: #2ea8e6;
 }
-.card:hover .card__link {
+.card.holder__item_hoverOn:hover .card__link {
   color:#2ea8e6;
 }
 input:checked + label .card {
@@ -229,17 +229,17 @@ input:checked + label .card__volume,
 input:checked + label .card__corner-decoration {
   background-color: #d91667;
 }
-input:checked + label .card:hover {
+input:checked + label .card.holder__item_hoverOn:hover {
   border-color: #e62e7a;
 }
-input:checked + label .card:hover .card__volume,
-input:checked + label .card:hover .card__corner-decoration {
+input:checked + label .card.holder__item_hoverOn:hover .card__volume,
+input:checked + label .card.holder__item_hoverOn:hover .card__corner-decoration {
   background-color: #e62e7a;
 }
-input:checked + label .card:hover .card__slogan_selectedHover {
+input:checked + label .card.holder__item_hoverOn:hover .card__slogan_selectedHover {
   display: inline-block;
 }
-input:checked + label .card:hover .card__slogan {
+input:checked + label .card.holder__item_hoverOn:hover .card__slogan {
   display: none;
 }
 input:checked + label .card__please_selected {

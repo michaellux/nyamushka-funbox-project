@@ -5,6 +5,7 @@ const products = [
     {
       id: 1,
       status: 'Default',
+      firstChoise: true,
       card__checkbox: 'fua-gra',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
@@ -20,6 +21,7 @@ const products = [
     {
       id: 2,
       status: 'Selected',
+      firstChoise: true,
       card__checkbox: 'fish',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
@@ -35,6 +37,7 @@ const products = [
     {
       id: 3,
       status: 'Disabled',
+      firstChoise: true,
       card__checkbox: 'chicken',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
@@ -61,6 +64,7 @@ class ProductList extends Component {
             key = {'product-' + product.id}
             id = {product.id}
             status = {product.status}
+            firstChoise = {product.firstChoise}
             card__checkbox = {product.card__checkbox}
             card__slogan = {product.card__slogan}
             card__caption = {product.card__caption}
@@ -89,20 +93,56 @@ class ProductList extends Component {
 }
 
 
-
 class Product extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      status: props.status
+      status: props.status,
+      firstChoise: props.firstChoise
     };
+    this.handleCardCheckStateChange = this.handleCardCheckStateChange.bind(this);
+    this.handleCardHoverStateChange = this.handleCardHoverStateChange.bind(this);
+    this.handleCardLeaveStateChange = this.handleCardLeaveStateChange.bind(this);
   }
+ 
+  handleCardCheckStateChange(e) {
+    this.setState(
+      function(){
+        console.log("Before " + this.state.status);
+      if(this.state.status === 'Selected') {
+        return {status : 'Default'};
+      }
+      else if(this.state.status === 'Disabled') {
+        return {status : 'Disabled'};
+      }
+      else {
+        return {status : 'Selected'};
+      }
+    }
+    );
+  }
+
+ 
+  handleCardHoverStateChange(e) {
+    console.log(this.state.firstChoise);
+    console.log("Hover");
+    this.setState(
+     {firstChoise : false}
+    );
+  }
+  handleCardLeaveStateChange(e) {
+    this.setState(
+      {firstChoise : true}
+     );
+  }
+  
   render() {
     return(
     <div className={"holder-list__item " + (this.props.id === 1 ? 'col-md-4 col-sm-12 col-xs-12' : 'col-md-4 col-sm-6 col-xs-12')}>
-       <input id={this.props.card__checkbox} type="checkbox" name="first" hidden />
+       <input id={this.props.card__checkbox} type="checkbox" name="first" checked={this.state.status === 'Selected' ? true : false} 
+       onChange={this.handleCardCheckStateChange} hidden />
           <label className="card__checkbox" htmlFor={this.props.card__checkbox}>
-            <li className="holder__item card">
+            <li className={(this.state.firstChoise ? "holder__item " : "holder__item_hoverOn ") + "card"} onMouseOver={this.handleCardHoverStateChange} onMouseOut={this.handleCardLeaveStateChange}>
                 <span className="card__slogan">{this.props.card__slogan}</span>
                 <span className="card__slogan_selectedHover">Котэ не одобряет?</span>
                 <h2 className="card__caption">{this.props.card__caption}</h2>
@@ -116,7 +156,7 @@ class Product extends Component {
                   <span className="card__volumeMetrics">{this.props.card__volumeMetrics}</span>
                 </div>
                 </div>
-                <span className="card__please">Чего сидишь? Порадуй котэ, <a className="card__link" href="#">купи.</a></span>
+                <span className="card__please">Чего сидишь? Порадуй котэ, <a className="card__link" href="#" onClick={this.handleCardCheckStateChange}>купи.</a></span>
                 <span className="card__please_selected">{this.props.card__please_selected}</span>
                 <div className="card__corner-decoration"></div>
             </li>
