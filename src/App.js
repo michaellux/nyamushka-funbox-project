@@ -5,7 +5,7 @@ const products = [
     {
       id: 1,
       status: 'Default',
-      firstChoise: true,
+      hoverPermission: true,
       card__checkbox: 'fua-gra',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
@@ -21,7 +21,7 @@ const products = [
     {
       id: 2,
       status: 'Selected',
-      firstChoise: true,
+      hoverPermission: true,
       card__checkbox: 'fish',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
@@ -37,7 +37,7 @@ const products = [
     {
       id: 3,
       status: 'Disabled',
-      firstChoise: true,
+      hoverPermission: true,
       card__checkbox: 'chicken',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
@@ -58,13 +58,12 @@ class ProductList extends Component {
   }
   
   render() {
-    console.log(products);
     const productComponents = products.map((product) => (
        <Product 
             key = {'product-' + product.id}
             id = {product.id}
             status = {product.status}
-            firstChoise = {product.firstChoise}
+            hoverPermission = {product.hoverPermission}
             card__checkbox = {product.card__checkbox}
             card__slogan = {product.card__slogan}
             card__caption = {product.card__caption}
@@ -98,7 +97,7 @@ class Product extends Component {
     super(props)
     this.state = {
       status: props.status,
-      firstChoise: props.firstChoise
+      hoverPermission: props.hoverPermission
     };
     this.handleCardCheckStateChange = this.handleCardCheckStateChange.bind(this);
     this.handleCardHoverStateChange = this.handleCardHoverStateChange.bind(this);
@@ -108,7 +107,6 @@ class Product extends Component {
   handleCardCheckStateChange(e) {
     this.setState(
       function(){
-        console.log("Before " + this.state.status);
       if(this.state.status === 'Selected') {
         return {status : 'Default'};
       }
@@ -116,6 +114,7 @@ class Product extends Component {
         return {status : 'Disabled'};
       }
       else {
+        this.state.hoverPermission = false;
         return {status : 'Selected'};
       }
     }
@@ -124,16 +123,26 @@ class Product extends Component {
 
  
   handleCardHoverStateChange(e) {
-    console.log(this.state.firstChoise);
-    console.log("Hover");
+    this.state.hoverPermission === false;
     this.setState(
-     {firstChoise : false}
+      function() {
+        if(this.state.status === 'Selected') {
+          if(this.state.hoverPermission === false)
+            return {hoverPermission : false}
+          else {
+            return {hoverPermission : true}
+          }
+        }
+      }
     );
   }
   handleCardLeaveStateChange(e) {
     this.setState(
-      {firstChoise : true}
-     );
+      function() {
+        if(this.state.status === 'Selected')
+        return {hoverPermission : true}
+      }
+    );
   }
   
   render() {
@@ -142,7 +151,7 @@ class Product extends Component {
        <input id={this.props.card__checkbox} type="checkbox" name="first" checked={this.state.status === 'Selected' ? true : false} 
        onChange={this.handleCardCheckStateChange} hidden />
           <label className="card__checkbox" htmlFor={this.props.card__checkbox}>
-            <li className={(this.state.firstChoise ? "holder__item " : "holder__item_hoverOn ") + "card"} onMouseOver={this.handleCardHoverStateChange} onMouseOut={this.handleCardLeaveStateChange}>
+            <li className={(this.state.hoverPermission ? "holder__item_hoverOn " : "holder__item ") + "card"} onMouseEnter={this.handleCardHoverStateChange} onMouseLeave={this.handleCardLeaveStateChange}>
                 <span className="card__slogan">{this.props.card__slogan}</span>
                 <span className="card__slogan_selectedHover">Котэ не одобряет?</span>
                 <h2 className="card__caption">{this.props.card__caption}</h2>
