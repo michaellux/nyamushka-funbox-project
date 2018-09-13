@@ -4,8 +4,8 @@ import './App.css';
 const products = [
     {
       id: 1,
-      status: 'Default',
-      hoverPermission: true,
+      status: 'Disabled',
+      hoverPermission: false,
       card__checkbox: 'fua-gra',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
@@ -16,12 +16,13 @@ const products = [
       card__volumeAmount: '0,5',
       card__volumeMetrics: 'кг',
       card__please_selected: 'Печень утки разварная с артишоками.',
+      card__outOfStock: 'Печалька, с фуа-гра закончился',
       holder__itemBackImage: './img/cat.png',
     },
     {
       id: 2,
-      status: 'Selected',
-      hoverPermission: true,
+      status: 'Disabled',
+      hoverPermission: false,
       card__checkbox: 'fish',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
@@ -32,12 +33,13 @@ const products = [
       card__volumeAmount: '2',
       card__volumeMetrics: 'кг',
       card__please_selected: 'Головы щучьи с чесноком да свежая сёмгушка.',
+      card__outOfStock: 'Печалька, с рыбой закончился',
       holder__itemBackImage: './img/cat.png',
     },
     {
       id: 3,
       status: 'Disabled',
-      hoverPermission: true,
+      hoverPermission: false,
       card__checkbox: 'chicken',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
@@ -48,6 +50,7 @@ const products = [
       card__volumeAmount: '5',
       card__volumeMetrics: 'кг',
       card__please_selected: 'Филе из цыплят с трюфелями в бульоне.',
+      card__outOfStock: 'Печалька, с курой закончился',
       holder__itemBackImage: './img/cat.png',
     },
 ];
@@ -74,6 +77,7 @@ class ProductList extends Component {
             card__volumeAmount = {product.card__volumeAmount}
             card__volumeMetrics = {product.card__volumeMetrics}
             card__please_selected = {product.card__please_selected}
+            card__outOfStock = {product.card__outOfStock}
             holder__itemBackImage = {product.holder__itemBackImage}
         />
    ));
@@ -151,7 +155,7 @@ class Product extends Component {
        <input id={this.props.card__checkbox} type="checkbox" name="first" checked={this.state.status === 'Selected' ? true : false} 
        onChange={this.handleCardCheckStateChange} hidden />
           <label className="card__checkbox" htmlFor={this.props.card__checkbox}>
-            <li className={(this.state.hoverPermission ? "holder__item_hoverOn " : "holder__item ") + "card"} onMouseEnter={this.handleCardHoverStateChange} onMouseLeave={this.handleCardLeaveStateChange}>
+            <li className={"holder__item"+(this.state.hoverPermission ? "_hoverOn" : "") + (this.state.status === "Disabled" ? "_disabled " : "") + "card"}  onMouseEnter={this.handleCardHoverStateChange} onMouseLeave={this.handleCardLeaveStateChange}>
                 <span className="card__slogan">{this.props.card__slogan}</span>
                 <span className="card__slogan_selectedHover">Котэ не одобряет?</span>
                 <h2 className="card__caption">{this.props.card__caption}</h2>
@@ -167,6 +171,7 @@ class Product extends Component {
                 </div>
                 <span className="card__please">Чего сидишь? Порадуй котэ, <a className="card__link" href="#" onClick={this.handleCardCheckStateChange}>купи.</a></span>
                 <span className="card__please_selected">{this.props.card__please_selected}</span>
+                <span className="card__outOfStock">{this.props.card__outOfStock}</span>
                 <div className="card__corner-decoration"></div>
             </li>
           </label>
