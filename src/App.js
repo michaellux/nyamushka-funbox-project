@@ -5,7 +5,7 @@ import './App.css';
 const products = [
     {
       id: 1,
-      status: 'Default',
+      status: 'Disabled',
       hoverPermission: true,
       card__checkbox: 'fua-gra',
       card__slogan: 'Сказочное заморское яство',
@@ -205,7 +205,7 @@ class Product extends Component {
                 <span className="card__gift">{numberOfgifts} {this.props.card__gift}</span>
                 {approvalMessage}
                 <div className="card__volume">
-                <div className="wrap">
+                <div className="card__volumeWrap">
                   <strong className="card__volumeAmount">{this.props.card__volumeAmount}</strong>
                   <span className="card__volumeMetrics">{this.props.card__volumeMetrics}</span>
                 </div>

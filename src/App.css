@@ -181,7 +181,7 @@ html {
   bottom: -5.8125rem;
   left: -1.375rem; }
 
-.wrap {
+.card__volumeWrap {
   display: flex;
   flex-direction: column;
   align-items: center;
