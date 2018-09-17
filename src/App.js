@@ -12,6 +12,7 @@ const products = [
       card__caption: 'Нямушка',
       card__subtitle: 'с фуа-гра',
       card__numberOfservings: 10,
+      card__numberOfgifts: 1,
       card__gift: 'мышь в подарок',
       card__approval: '',
       card__volumeAmount: '0,5',
@@ -22,14 +23,15 @@ const products = [
     },
     {
       id: 2,
-      status: 'Disabled',
+      status: 'Default',
       hoverPermission: true,
       card__checkbox: 'fish',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
       card__subtitle: 'с рыбой',
       card__numberOfservings: 40,
-      card__gift: '2 мыши в подарок',
+      card__numberOfgifts: 2,
+      card__gift: 'мыши в подарок',
       card__approval: '',
       card__volumeAmount: '2',
       card__volumeMetrics: 'кг',
@@ -39,14 +41,15 @@ const products = [
     },
     {
       id: 3,
-      status: 'Disabled',
+      status: 'Default',
       hoverPermission: true,
       card__checkbox: 'chicken',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
       card__subtitle: 'с курой',
       card__numberOfservings: 100,
-      card__gift: '5 мышей в подарок',
+      card__numberOfgifts: 5,
+      card__gift: 'мышей в подарок',
       card__approval: 'заказчик доволен',
       card__volumeAmount: '5',
       card__volumeMetrics: 'кг',
@@ -72,6 +75,10 @@ class ProductList extends Component {
       }
     }
 
+    function buildOfThePhraseGift() {
+
+    }
+
     const productComponents = products.map((product) => (
        <Product 
             key = {'product-' + product.id}
@@ -83,6 +90,7 @@ class ProductList extends Component {
             card__caption = {product.card__caption}
             card__subtitle = {product.card__subtitle}
             card__numberOfservings = {product.card__numberOfservings}
+            card__numberOfgifts = {product.card__numberOfgifts}
             card__gift = {product.card__gift}
             card__approval = {product.card__approval}
             card__volumeAmount = {product.card__volumeAmount}
@@ -177,6 +185,11 @@ class Product extends Component {
     if(this.state.status === "Disabled") {
       outOfStock = <span className="card__outOfStock">{this.props.card__outOfStock}</span>;
     }
+
+    let numberOfgifts;
+    if(this.props.card__checkbox != "fua-gra") {
+      numberOfgifts = <strong>{this.props.card__numberOfgifts}</strong>;
+    }
     
     return(
     <div className={"holder-list__item " + (this.props.id === 1 ? 'col-md-4 col-sm-12 col-xs-12' : 'col-md-4 col-sm-6 col-xs-12')}>
@@ -189,7 +202,7 @@ class Product extends Component {
                 <h2 className="card__caption">{this.props.card__caption}</h2>
                 <h3 className="card__subtitle">{this.props.card__subtitle}</h3>
                 <span className="card__numberOfservings"><strong >{this.props.card__numberOfservings}</strong> порций</span> 
-                <span className="card__gift">{this.props.card__gift}</span>
+                <span className="card__gift">{numberOfgifts} {this.props.card__gift}</span>
                 {approvalMessage}
                 <div className="card__volume">
                 <div className="wrap">
