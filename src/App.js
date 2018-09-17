@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
 const products = [
     {
       id: 1,
       status: 'Disabled',
-      hoverPermission: false,
+      hoverPermission: true,
       card__checkbox: 'fua-gra',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
@@ -22,7 +23,7 @@ const products = [
     {
       id: 2,
       status: 'Disabled',
-      hoverPermission: false,
+      hoverPermission: true,
       card__checkbox: 'fish',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
@@ -39,7 +40,7 @@ const products = [
     {
       id: 3,
       status: 'Disabled',
-      hoverPermission: false,
+      hoverPermission: true,
       card__checkbox: 'chicken',
       card__slogan: 'Сказочное заморское яство',
       card__caption: 'Нямушка',
@@ -61,12 +62,22 @@ class ProductList extends Component {
   }
   
   render() {
+
+    function setHoverPermission(status) {
+      if(status != 'Disabled') {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+
     const productComponents = products.map((product) => (
        <Product 
             key = {'product-' + product.id}
             id = {product.id}
             status = {product.status}
-            hoverPermission = {product.hoverPermission}
+            hoverPermission = {setHoverPermission(product.status)}
             card__checkbox = {product.card__checkbox}
             card__slogan = {product.card__slogan}
             card__caption = {product.card__caption}
@@ -169,7 +180,7 @@ class Product extends Component {
        <input id={this.props.card__checkbox} type="checkbox" name="first" checked={this.state.status === 'Selected' ? true : false} 
        onChange={this.handleCardCheckStateChange} hidden />
           <label className="card__checkbox" htmlFor={this.props.card__checkbox}>
-            <li className={"holder__item"+(this.state.hoverPermission ? "_hoverOn" : "") + (this.state.status === "Disabled" ? "_disabled " : "") + "card"}  onMouseEnter={this.handleCardHoverStateChange} onMouseLeave={this.handleCardLeaveStateChange}>
+            <li className={"holder__item"+(this.state.hoverPermission ? "_hoverOn " : "") + (this.state.status === "Disabled" ? "_disabled " : "") + "card"}  onMouseEnter={this.handleCardHoverStateChange} onMouseLeave={this.handleCardLeaveStateChange}>
                 <span className="card__slogan">{this.props.card__slogan}</span>
                 <span className="card__slogan_selectedHover">Котэ не одобряет?</span>
                 <h2 className="card__caption">{this.props.card__caption}</h2>
