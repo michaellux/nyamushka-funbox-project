@@ -150,6 +150,20 @@ class Product extends Component {
   }
   
   render() {
+
+    let approvalMessage;
+    if(this.props.card__approval != '') {
+      approvalMessage = <span className="card__approval">{this.props.card__approval}</span>;
+    }
+
+    let please;
+    if(this.state.status === "Default") {
+      please = <span className="card__please">Чего сидишь? Порадуй котэ, <a className="card__link" href="#" onClick={this.handleCardCheckStateChange}>купи.</a></span>;
+    }
+    else if(this.state.status === "Selected") {
+      please = <span className="card__please_selected">{this.props.card__please_selected}</span>;
+    }
+
     return(
     <div className={"holder-list__item " + (this.props.id === 1 ? 'col-md-4 col-sm-12 col-xs-12' : 'col-md-4 col-sm-6 col-xs-12')}>
        <input id={this.props.card__checkbox} type="checkbox" name="first" checked={this.state.status === 'Selected' ? true : false} 
@@ -162,15 +176,14 @@ class Product extends Component {
                 <h3 className="card__subtitle">{this.props.card__subtitle}</h3>
                 <span className="card__numberOfservings"><strong >{this.props.card__numberOfservings}</strong> порций</span> 
                 <span className="card__gift">{this.props.card__gift}</span>
-                <span className="card__approval">{this.props.card__approval}</span>
+                {approvalMessage}
                 <div className="card__volume">
                 <div className="wrap">
                   <strong className="card__volumeAmount">{this.props.card__volumeAmount}</strong>
                   <span className="card__volumeMetrics">{this.props.card__volumeMetrics}</span>
                 </div>
                 </div>
-                <span className="card__please">Чего сидишь? Порадуй котэ, <a className="card__link" href="#" onClick={this.handleCardCheckStateChange}>купи.</a></span>
-                <span className="card__please_selected">{this.props.card__please_selected}</span>
+                {please}
                 <span className="card__outOfStock">{this.props.card__outOfStock}</span>
                 <div className="card__corner-decoration"></div>
             </li>
