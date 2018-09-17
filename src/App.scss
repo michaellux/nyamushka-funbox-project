@@ -20,7 +20,9 @@ html {
 .page {
   width: 100%;
   background: #50b4e5;
-  background: url("./img/pattern.png");
+  background: url("./img/pattern_slice.png");
+  background-position: 0 0;
+  background-repeat: repeat;
   color: #000;
   line-height: 1;
 }
