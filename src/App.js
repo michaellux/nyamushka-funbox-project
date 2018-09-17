@@ -151,10 +151,10 @@ class Product extends Component {
   }
   handleCardLeaveStateChange(e) {
     this.setState(
-      
-        
-        {hoverPermission : true}
-      
+      function() {
+        if(this.state.status != "Disabled")  
+          return {hoverPermission : true}
+    }
     );
   }
   
