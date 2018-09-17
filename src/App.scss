@@ -74,6 +74,7 @@ html {
 .holder__item_disabled.card {
   border: 4px solid #b3b3b3;
   background: url('./img/cat_transparent.png') no-repeat #f2f2f2 43% 182%;
+  cursor: default;
 }
 .holder__item_disabled.card * {
   color: #d4d4d4;
@@ -108,6 +109,7 @@ html {
   position: relative;
   list-style-type: none;
   position: relative;
+  cursor: pointer;
 }
 .card__checkbox {
   font-weight: normal;
