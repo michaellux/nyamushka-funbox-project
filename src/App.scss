@@ -91,10 +91,11 @@ html {
 .holder__item_disabled.card .card__volumeMetrics {
   color: #fff;
 }
-.holder__item_disabled .card__volume,
-.holder__item_disabled .card__corner-decoration {
-  opacity: 1;
+.holder__item_disabled .card__volume {
   background-color: #b3b3b3;
+}
+.holder__item_disabled .card__corner-decoration {
+  border-top-color: #b3b3b3;
 }
 .card {
   background-color: #f2f2f2;
@@ -228,14 +229,14 @@ html {
   display: none;
 }
 .card__corner-decoration {
-  width: rem(48px);
-  height: rem(48px);
-  background-color: #1698d9;
+  width: 0;
+  height: 0;
+  border-top: rem(48px) solid #1698d9;
+  border-right: rem(48px) solid transparent;
   position: absolute;
   left: rem(-4px);
   top: rem(-4px);
-  -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
-  clip-path: polygon(0 0, 0% 100%, 100% 0);
+  
 }
 .card__link {
   color: #1698d9;
@@ -255,9 +256,11 @@ html {
 .card.holder__item_hoverOn:hover {
   border-color: #2ea8e6;
 }
-.card.holder__item_hoverOn:hover .card__volume,
-.card.holder__item_hoverOn:hover .card__corner-decoration {
+.card.holder__item_hoverOn:hover .card__volume {
   background-color: #2ea8e6;
+}
+.card.holder__item_hoverOn:hover .card__corner-decoration {
+  border-top-color: #2ea8e6;
 }
 .card.holder__item_hoverOn:hover .card__link {
   color:#2ea8e6;
@@ -265,16 +268,20 @@ html {
 input:checked + label .card {
   border-color: #d91667;
 }
-input:checked + label .card__volume,
-input:checked + label .card__corner-decoration {
+input:checked + label .card__volume {
   background-color: #d91667;
+}
+input:checked + label .card__corner-decoration {
+  border-top-color: #d91667;
 }
 input:checked + label .card.holder__item_hoverOn:hover {
   border-color: #e62e7a;
 }
-input:checked + label .card.holder__item_hoverOn:hover .card__volume,
-input:checked + label .card.holder__item_hoverOn:hover .card__corner-decoration {
+input:checked + label .card.holder__item_hoverOn:hover .card__volume {
   background-color: #e62e7a;
+}
+input:checked + label .card.holder__item_hoverOn:hover .card__corner-decoration {
+  border-top-color: #e62e7a;
 }
 input:checked + label .card.holder__item_hoverOn:hover .card__slogan_selectedHover {
   display: inline-block;
