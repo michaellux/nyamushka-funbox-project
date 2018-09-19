@@ -111,12 +111,13 @@ html {
   list-style-type: none;
   position: relative;
   cursor: pointer;
+  border-top: none;
+  border-left:none;
+  background: url("./img/cat.png") 43% 182% no-repeat , linear-gradient(135deg, transparent rem(28px), #f2f2f2 0) top left;
 }
 .card__checkbox {
   font-weight: normal;
   text-align: initial;
-  -webkit-clip-path: polygon(13.4375% 0, 100% 0, 100% 150%, 0 150%, 0 8.75%);
-  clip-path: polygon(13.4375% 0, 100% 0, 100% 150%, 0 150%, 0 8.75%);
   word-wrap: break-word;
 }
 .card__slogan {
@@ -229,15 +230,17 @@ html {
   display: none;
 }
 .card__corner-decoration {
-  width: 0;
-  height: 0;
-  border-top: rem(48px) solid #1698d9;
-  border-right: rem(48px) solid transparent;
+  width: 3.8rem;
+  height: 5px;
+  background: #1698d9;
   position: absolute;
-  left: rem(-4px);
-  top: rem(-4px);
-  
+  left: -9px;
+  top: 19px;
+  -webkit-transform: rotateZ(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotateZ(315deg) perspective(0.1em) rotateX(2.5deg);
 }
+
 .card__link {
   color: #1698d9;
   text-decoration: none;
