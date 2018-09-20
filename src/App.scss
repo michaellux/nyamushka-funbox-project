@@ -4,6 +4,14 @@ $root-font-size: 16px;
   @return $size / $root-font-size * 1rem;
 }
 
+$default-color: #1698d9;
+$default-hover-color: #2ea8e6;
+
+$selected-color: #d91667;
+$selected-hover-color: #e62e7a;
+
+$disabled-color: #b3b3b3;
+
 @font-face {
   font-family: "Exo 2.0";
   src: url(./fonts/Exo2.0-Thin.otf); 
@@ -72,7 +80,7 @@ html {
   background-position: 63% 180%;
 }
 .holder__item_disabled.card {
-  border: 4px solid #b3b3b3;
+  border: 4px solid $disabled-color;
   background: url('./img/cat_transparent.png') no-repeat #f2f2f2 43% 182%;
   cursor: default;
 }
@@ -92,10 +100,10 @@ html {
   color: #fff;
 }
 .holder__item_disabled .card__volume {
-  background-color: #b3b3b3;
+  background-color: $disabled-color;
 }
 .holder__item_disabled .card__corner-decoration {
-  border-top-color: #b3b3b3;
+  border-top-color: $disabled-color;
 }
 .card {
   background-color: #f2f2f2;
@@ -103,7 +111,7 @@ html {
   width: rem(320px);
   height: 30rem;
   padding: 0 rem(45px);
-  border: 4px solid #1698d9;
+  border: 4px solid $default-color;
   -webkit-border-radius: 0.75rem;
   -moz-border-radius: 0.75rem;
   border-radius: 0.75rem;
@@ -129,7 +137,7 @@ html {
   text-indent: -0.03125rem;
 }
 .card__slogan_selectedHover {
-  color: #e62e7a;
+  color: $selected-hover-color;
   display: none;
 }
 .card__slogan,
@@ -170,7 +178,7 @@ html {
 .card__volume {
   width: 5rem;
     height: 5rem;
-    background-color: #1698d9;
+    background-color: $default-color;
     border-radius: 50%;
     z-index: 1;
     position: absolute;
@@ -231,20 +239,61 @@ html {
 }
 .card__corner-decoration {
   width: 3.8rem;
-  height: 5px;
-  background: #1698d9;
+  height: rem(5px);
+  background: $default-color;
   position: absolute;
-  left: -9px;
-  top: 19px;
+  left: rem(-9px);
+  top: rem(19px);
   -webkit-transform: rotateZ(135deg);
   -ms-transform: rotate(135deg);
   transform: rotateZ(315deg) perspective(0.1em) rotateX(2.5deg);
 }
-
+.card__top-decoration {
+  width: 17.92rem;
+  height: 3.8rem;
+  position: absolute;
+  right: -4px;
+  top: 0;
+  background: transparent;
+  border: $default-color 4px solid;
+  border-radius: 0.75rem;
+  border-left: none;
+  border-bottom: none;
+}
+.card__top-decoration:before {
+  content: "";
+  width: 20px;
+  height: 12px;
+  background: #f2f2f2;
+  position: absolute;
+  right: 0;
+  top: 2.9rem;
+}
+.card__left-decoration {
+  width: 17.92rem;
+  height: 27.92rem;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  background: transparent;
+  border: #1698d9 4px solid;
+  border-radius: 0.75rem;
+  border-right: none;
+  border-top: none;
+}
+.card__left-decoration:before {
+  content: "";
+  width: rem(20px);
+  height: rem(12px);
+  background: #f2f2f2;
+  position: absolute;
+  bottom: 0;
+  left: 95%;
+}
 .card__link {
-  color: #1698d9;
+  color: $default-color;
   text-decoration: none;
-  border-bottom: 0.0625rem dashed #1698d9;
+  border-bottom: 0.0625rem dashed $default-color;
   padding-bottom: 0.0625rem;
 }
 .card__link:hover,
@@ -253,38 +302,48 @@ html {
 .card__link:visited:focus,
 .card__link:focus {
   text-decoration: none;
-  color: #2ea8e6;
+  color: $default-hover-color;
   outline: none;
 }
-.card.holder__item_hoverOn:hover {
-  border-color: #2ea8e6;
+.card.holder__item_hoverOn:hover,
+.card.holder__item_hoverOn:hover .card__top-decoration,
+.card.holder__item_hoverOn:hover .card__left-decoration {
+  border-color: $default-hover-color;
 }
-.card.holder__item_hoverOn:hover .card__volume {
-  background-color: #2ea8e6;
+.card.holder__item_hoverOn:hover .card__volume,
+.card.holder__item_hoverOn:hover .card__corner-decoration {
+  background-color: $default-hover-color;
 }
 .card.holder__item_hoverOn:hover .card__corner-decoration {
-  border-top-color: #2ea8e6;
+  border-top-color: $default-hover-color;
 }
 .card.holder__item_hoverOn:hover .card__link {
-  color:#2ea8e6;
+  color: $default-hover-color;
 }
-input:checked + label .card {
-  border-color: #d91667;
+input:checked + label .card,
+input:checked + label .card .card__top-decoration,
+input:checked + label .card .card__left-decoration {
+  border-color: $selected-color;
 }
-input:checked + label .card__volume {
-  background-color: #d91667;
+input:checked + label .card__volume,
+input:checked + label .card__corner-decoration
+ {
+  background-color: $selected-color;
 }
 input:checked + label .card__corner-decoration {
-  border-top-color: #d91667;
+  border-top-color: $selected-color;
 }
-input:checked + label .card.holder__item_hoverOn:hover {
-  border-color: #e62e7a;
+input:checked + label .card.holder__item_hoverOn:hover,
+input:checked + label .card.holder__item_hoverOn:hover .card__top-decoration,
+input:checked + label .card.holder__item_hoverOn:hover .card__left-decoration {
+  border-color: $selected-hover-color;
 }
-input:checked + label .card.holder__item_hoverOn:hover .card__volume {
-  background-color: #e62e7a;
+input:checked + label .card.holder__item_hoverOn:hover .card__volume,
+input:checked + label .card.holder__item_hoverOn:hover .card__corner-decoration {
+  background-color: $selected-hover-color;
 }
 input:checked + label .card.holder__item_hoverOn:hover .card__corner-decoration {
-  border-top-color: #e62e7a;
+  border-top-color: $selected-hover-color;
 }
 input:checked + label .card.holder__item_hoverOn:hover .card__slogan_selectedHover {
   display: inline-block;

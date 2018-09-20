@@ -213,6 +213,8 @@ class Product extends Component {
                 {please}
                 {outOfStock}
                 <div className="card__corner-decoration"></div>
+                <div className="card__top-decoration"></div>
+                <div className="card__left-decoration"></div>
             </li>
           </label>
     </div>
