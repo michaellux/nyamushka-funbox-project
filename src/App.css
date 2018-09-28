@@ -44,7 +44,9 @@ html {
   align-items: center;
   justify-content: center;
   margin: auto;
-  flex-grow: 1; }
+  flex-grow: 1;
+  flex: 1;
+  flex-basis: calc((100vh - (30rem + 6rem) )); }
 
 .holder-list {
   display: flex;

@@ -1,9 +1,5 @@
 $root-font-size: 16px;
 
-@function rem($size) {
-  @return $size / $root-font-size * 1rem;
-}
-
 $default-color: #1698d9;
 $default-hover-color: #2ea8e6;
 
@@ -11,6 +7,16 @@ $selected-color: #d91667;
 $selected-hover-color: #e62e7a;
 
 $disabled-color: #b3b3b3;
+
+@function rem($size) {
+  @return $size / $root-font-size * 1rem;
+}
+
+$widthOfCard:  rem(320px);
+$heightOfCard: rem(480px);
+$spaceBottomOfCard: rem(96px); 
+
+$heightOfTitle: calc((100vh - (#{$heightOfCard} + #{$spaceBottomOfCard}) ));
 
 @font-face {
   font-family: "Exo 2.0";
@@ -59,6 +65,8 @@ html {
   justify-content: center;
   margin: auto;
   flex-grow: 1;
+  flex: 1;
+  flex-basis: $heightOfTitle;
 }
 .holder-list {
   display: flex;
@@ -108,8 +116,8 @@ html {
 .card {
   background-color: #f2f2f2;
   font-family: "Trebuchet MS", sans-serif;
-  width: rem(320px);
-  height: 30rem;
+  width: $widthOfCard;
+  height: $heightOfCard;
   padding: 0 rem(45px);
   border: 4px solid $default-color;
   -webkit-border-radius: 0.75rem;
