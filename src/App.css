@@ -45,8 +45,10 @@ html {
   justify-content: center;
   margin: auto;
   flex-grow: 1;
-  flex: 1;
-  flex-basis: calc((100vh - (30rem + 6rem) )); }
+  flex: 1; }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .page__title {
+      flex-basis: calc((100vh - 30rem  ) / 2); } }
 
 .holder-list {
   display: flex;

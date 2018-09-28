@@ -16,7 +16,7 @@ $widthOfCard:  rem(320px);
 $heightOfCard: rem(480px);
 $spaceBottomOfCard: rem(96px); 
 
-$heightOfTitle: calc((100vh - (#{$heightOfCard} + #{$spaceBottomOfCard}) ));
+$heightOfTitle: calc((100vh - #{$heightOfCard}  ) / 2);
 
 @font-face {
   font-family: "Exo 2.0";
@@ -54,6 +54,11 @@ html {
   flex-direction: column;
   flex:1;
 }
+@mixin target-metro {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
 .page__title {
   font-family: "Exo 2.0";
   font-size: 2.25rem;
@@ -66,7 +71,11 @@ html {
   margin: auto;
   flex-grow: 1;
   flex: 1;
-  flex-basis: $heightOfTitle;
+  
+
+  @include target-metro {
+    flex-basis: $heightOfTitle; 
+  }
 }
 .holder-list {
   display: flex;
