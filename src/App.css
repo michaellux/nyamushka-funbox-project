@@ -1,6 +1,7 @@
 @font-face {
-  font-family: "Exo 2.0";
-  src: url(./fonts/Exo2.0-Thin.otf); }
+  font-family: 'Exo2_0Thin';
+  src: url("./fonts/Exo2_0Thin.eot");
+  src: url("./fonts/Exo2_0Thin.eot") format("embedded-opentype"), url("./fonts/Exo2_0Thin.woff2") format("woff2"), url("./fonts/Exo2_0Thin.woff") format("woff"), url("./fonts/Exo2_0Thin.ttf") format("truetype"), url("./fonts/Exo2_0Thin.svg#Exo2_0Thin") format("svg"); }
 
 *::before,
 *::after {
@@ -35,7 +36,7 @@ html {
   flex: 1; }
 
 .page__title {
-  font-family: "Exo 2.0";
+  font-family: 'Exo2_0Thin';
   font-size: 2.25rem;
   text-align: center;
   color: #fff;
