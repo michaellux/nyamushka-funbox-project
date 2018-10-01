@@ -20,5 +20,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "core-js": "^2.5.7",
+    "raf": "^3.4.0"
+  }
 }

@@ -7,3 +7,7 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+
+global.requestAnimationFrme = function(callback) {
+  setTimeout(callback, 0);
+};
