@@ -79,6 +79,8 @@ html {
   flex: 1;
   @include target-metro {
     flex-basis: $heightOfTitle; 
+    letter-spacing:rem(0.1px);
+    word-spacing: rem(-2px);
   }
 }
 .holder-list {
@@ -98,11 +100,14 @@ html {
   background: url('./img/cat.png') no-repeat;
 }
 .holder__item,.holder__item_hoverOn {
-  background-position: 63% 180%;
+  background-position: 43% 182%;
 }
 .holder__item_disabled.card {
   border-color: #b3b3b3;
-  background: url("./img/cat_transparent.png") 43% 182% no-repeat , linear-gradient(135deg, transparent rem(28px), #f2f2f2 0) top left;
+  @include target-metro {
+    background: url("./img/cat_transparent.png") 43% 182% no-repeat , linear-gradient(135deg, transparent rem(29.698484809835px), #f2f2f2 0) top left;
+  }
+  background: url("./img/cat_transparent.png") 43% 182% no-repeat #f2f2f2;
   cursor: default;
 }
 .holder__item_disabled.card * {
@@ -140,22 +145,30 @@ html {
   list-style-type: none;
   position: relative;
   cursor: pointer;
-  border-top: none;
-  border-left:none;
-  background: url("./img/cat.png") 43% 182% no-repeat , linear-gradient(135deg, transparent rem(28px), #f2f2f2 0) top left;
+  
+  @include target-metro {
+    border-top: none;
+    border-left:none;
+    background: url("./img/cat.png") 43% 182% no-repeat , linear-gradient(135deg, transparent rem(29.698484809835px), #f2f2f2 0) top left;
+  }
 }
 .card__checkbox {
   font-weight: normal;
   text-align: initial;
   word-wrap: break-word;
+  -webkit-clip-path: polygon(13.4375% 0, 100% 0, 100% 150%, 0 150%, 0 8.75%);
+  clip-path: polygon(13.4375% 0, 100% 0, 100% 150%, 0 150%, 0 8.75%);
 }
 .card__slogan {
     display: inline-block;
 }
 .card__slogan,.card__slogan_selectedHover {
   font-size: 1rem;
-  margin: 1.25rem rem(22px) 0.9375rem 0;
-  text-indent: -0.03125rem;
+  margin: 1.25rem 0 0.9375rem 0;
+  
+  @include target-metro {
+    text-indent: rem(-24px);
+  }
 }
 .card__slogan_selectedHover {
   color: $selected-hover-color;
@@ -264,15 +277,33 @@ html {
 .card__please_selected {
   display: none;
 }
+div[class$="top-decoration"],
+div[class$="left-decoration"]
+{
+  display: none;
+  @include target-metro {
+    display: block; 
+  }
+}
 .card__corner-decoration {
-  width: rem(64.5px);
-  height: rem(5px);
-  background: $default-color;
+  width: rem(48px);
+  height: rem(48px);
+  background-color: #1698d9;
   position: absolute;
-  left: rem(-9.4px);
-  top: rem(17.8px);
-  transform: rotateZ(315deg) perspective(0.2em) rotateX(5deg);
-  transform-origin: bottom;
+  left: rem(-4px);
+  top: rem(-4px);
+  -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
+  clip-path: polygon(0 0, 0% 100%, 100% 0);
+  @include target-metro {
+    width: rem(64.5px);
+    height: rem(5px);
+    background: $default-color;
+    position: absolute;
+    left: rem(-9.4px);
+    top: rem(17.8px);
+    transform: rotateZ(315deg) perspective(0.2em) rotateX(5deg);
+    transform-origin: bottom;
+  }
 }
 .holder__item_disabled.card .card__corner-decoration {
   background: #b3b3b3;

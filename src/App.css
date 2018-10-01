@@ -49,7 +49,9 @@ html {
   flex: 1; }
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     .page__title {
-      flex-basis: calc((100vh - 30rem  ) / 2); } }
+      flex-basis: calc((100vh - 30rem  ) / 2);
+      letter-spacing: 0.00625rem;
+      word-spacing: -0.125rem; } }
 
 .holder-list {
   display: flex;
@@ -68,12 +70,15 @@ html {
   background: url("./img/cat.png") no-repeat; }
 
 .holder__item, .holder__item_hoverOn {
-  background-position: 63% 180%; }
+  background-position: 43% 182%; }
 
 .holder__item_disabled.card {
   border-color: #b3b3b3;
-  background: url("./img/cat_transparent.png") 43% 182% no-repeat, linear-gradient(135deg, transparent 1.75rem, #f2f2f2 0) top left;
+  background: url("./img/cat_transparent.png") 43% 182% no-repeat #f2f2f2;
   cursor: default; }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .holder__item_disabled.card {
+      background: url("./img/cat_transparent.png") 43% 182% no-repeat, linear-gradient(135deg, transparent 1.85616rem, #f2f2f2 0) top left; } }
 
 .holder__item_disabled.card * {
   color: #d4d4d4; }
@@ -106,23 +111,29 @@ html {
   position: relative;
   list-style-type: none;
   position: relative;
-  cursor: pointer;
-  border-top: none;
-  border-left: none;
-  background: url("./img/cat.png") 43% 182% no-repeat, linear-gradient(135deg, transparent 1.75rem, #f2f2f2 0) top left; }
+  cursor: pointer; }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .card {
+      border-top: none;
+      border-left: none;
+      background: url("./img/cat.png") 43% 182% no-repeat, linear-gradient(135deg, transparent 1.85616rem, #f2f2f2 0) top left; } }
 
 .card__checkbox {
   font-weight: normal;
   text-align: initial;
-  word-wrap: break-word; }
+  word-wrap: break-word;
+  -webkit-clip-path: polygon(13.4375% 0, 100% 0, 100% 150%, 0 150%, 0 8.75%);
+  clip-path: polygon(13.4375% 0, 100% 0, 100% 150%, 0 150%, 0 8.75%); }
 
 .card__slogan {
   display: inline-block; }
 
 .card__slogan, .card__slogan_selectedHover {
   font-size: 1rem;
-  margin: 1.25rem 1.375rem 0.9375rem 0;
-  text-indent: -0.03125rem; }
+  margin: 1.25rem 0 0.9375rem 0; }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .card__slogan, .card__slogan_selectedHover {
+      text-indent: -1.5rem; } }
 
 .card__slogan_selectedHover {
   color: #e62e7a;
@@ -231,15 +242,33 @@ html {
 .card__please_selected {
   display: none; }
 
+div[class$="top-decoration"],
+div[class$="left-decoration"] {
+  display: none; }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    div[class$="top-decoration"],
+    div[class$="left-decoration"] {
+      display: block; } }
+
 .card__corner-decoration {
-  width: 4.03125rem;
-  height: 0.3125rem;
-  background: #1698d9;
+  width: 3rem;
+  height: 3rem;
+  background-color: #1698d9;
   position: absolute;
-  left: -0.5875rem;
-  top: 1.1125rem;
-  transform: rotateZ(315deg) perspective(0.2em) rotateX(5deg);
-  transform-origin: bottom; }
+  left: -0.25rem;
+  top: -0.25rem;
+  -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
+  clip-path: polygon(0 0, 0% 100%, 100% 0); }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .card__corner-decoration {
+      width: 4.03125rem;
+      height: 0.3125rem;
+      background: #1698d9;
+      position: absolute;
+      left: -0.5875rem;
+      top: 1.1125rem;
+      transform: rotateZ(315deg) perspective(0.2em) rotateX(5deg);
+      transform-origin: bottom; } }
 
 .holder__item_disabled.card .card__corner-decoration {
   background: #b3b3b3; }
