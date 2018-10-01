@@ -5,7 +5,7 @@ import './App.css';
 const products = [
     {
       id: 1,
-      status: 'Disabled',
+      status: 'Default',
       hoverPermission: true,
       card__checkbox: 'fua-gra',
       card__slogan: 'Сказочное заморское яство',
@@ -23,7 +23,7 @@ const products = [
     },
     {
       id: 2,
-      status: 'Default',
+      status: 'Selected',
       hoverPermission: true,
       card__checkbox: 'fish',
       card__slogan: 'Сказочное заморское яство',
@@ -41,7 +41,7 @@ const products = [
     },
     {
       id: 3,
-      status: 'Default',
+      status: 'Disabled',
       hoverPermission: true,
       card__checkbox: 'chicken',
       card__slogan: 'Сказочное заморское яство',
