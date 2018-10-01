@@ -71,8 +71,8 @@ html {
   background-position: 63% 180%; }
 
 .holder__item_disabled.card {
-  border: 4px solid #b3b3b3;
-  background: url("./img/cat_transparent.png") no-repeat #f2f2f2 43% 182%;
+  border-color: #b3b3b3;
+  background: url("./img/cat_transparent.png") 43% 182% no-repeat, linear-gradient(135deg, transparent 1.75rem, #f2f2f2 0) top left;
   cursor: default; }
 
 .holder__item_disabled.card * {
@@ -121,12 +121,15 @@ html {
 
 .card__slogan, .card__slogan_selectedHover {
   font-size: 1rem;
-  margin: 1.25rem 0px 0.9375rem 0;
+  margin: 1.25rem 1.375rem 0.9375rem 0;
   text-indent: -0.03125rem; }
 
 .card__slogan_selectedHover {
   color: #e62e7a;
   display: none; }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .card__slogan_selectedHover {
+      margin-left: -4.25rem; } }
 
 .card__slogan,
 .card__numberOfservings,
@@ -137,7 +140,9 @@ html {
 .card__numberOfservings,
 .card__gift,
 .card__approval {
-  font-size: 0.875rem; }
+  font-size: 0.875rem;
+  text-align: left;
+  display: block; }
 
 .card__caption {
   font-size: 3rem;
@@ -152,7 +157,8 @@ html {
   color: #000;
   font-weight: bold;
   line-height: 1.1;
-  margin: 0; }
+  margin: 0;
+  text-align: left; }
 
 .card__numberOfservings {
   margin-top: 0.9375rem;
@@ -236,6 +242,9 @@ html {
   -ms-transform: rotate(135deg);
   transform: rotateZ(315deg) perspective(0.1em) rotateX(2.5deg); }
 
+.holder__item_disabled.card .card__corner-decoration {
+  background: #b3b3b3; }
+
 .card__top-decoration {
   width: 17.92rem;
   height: 3.8rem;
@@ -277,6 +286,10 @@ html {
   position: absolute;
   bottom: 0;
   left: 95%; }
+
+.holder__item_disabled.card .card__top-decoration,
+.holder__item_disabled.card .card__left-decoration {
+  border-color: #b3b3b3; }
 
 .card__link {
   color: #1698d9;
