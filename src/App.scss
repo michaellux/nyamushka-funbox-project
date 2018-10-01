@@ -265,15 +265,14 @@ html {
   display: none;
 }
 .card__corner-decoration {
-  width: 3.8rem;
+  width: rem(64.5px);
   height: rem(5px);
   background: $default-color;
   position: absolute;
-  left: rem(-9px);
-  top: rem(19px);
-  -webkit-transform: rotateZ(135deg);
-  -ms-transform: rotate(135deg);
-  transform: rotateZ(315deg) perspective(0.1em) rotateX(2.5deg);
+  left: rem(-9.4px);
+  top: rem(17.8px);
+  transform: rotateZ(315deg) perspective(0.2em) rotateX(5deg);
+  transform-origin: bottom;
 }
 .holder__item_disabled.card .card__corner-decoration {
   background: #b3b3b3;

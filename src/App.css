@@ -232,15 +232,14 @@ html {
   display: none; }
 
 .card__corner-decoration {
-  width: 3.8rem;
+  width: 4.03125rem;
   height: 0.3125rem;
   background: #1698d9;
   position: absolute;
-  left: -0.5625rem;
-  top: 1.1875rem;
-  -webkit-transform: rotateZ(135deg);
-  -ms-transform: rotate(135deg);
-  transform: rotateZ(315deg) perspective(0.1em) rotateX(2.5deg); }
+  left: -0.5875rem;
+  top: 1.1125rem;
+  transform: rotateZ(315deg) perspective(0.2em) rotateX(5deg);
+  transform-origin: bottom; }
 
 .holder__item_disabled.card .card__corner-decoration {
   background: #b3b3b3; }
