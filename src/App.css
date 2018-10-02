@@ -63,6 +63,9 @@ html {
   margin: 0;
   text-align: center; }
 
+.holder-list:before {
+  display: block; }
+
 .holder-list__item {
   padding: 0; }
 
