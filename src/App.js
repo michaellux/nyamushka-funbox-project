@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 const products = [
@@ -60,23 +59,14 @@ const products = [
 ];
 
 class ProductList extends Component {
-  constructor(props) {
-    super(props)
-  }
-  
   render() {
-
     function setHoverPermission(status) {
-      if(status != 'Disabled') {
+      if(status !== 'Disabled') {
         return true;
       }
       else {
         return false;
       }
-    }
-
-    function buildOfThePhraseGift() {
-
     }
 
     const productComponents = products.map((product) => (
@@ -160,7 +150,7 @@ class Product extends Component {
   handleCardLeaveStateChange(e) {
     this.setState(
       function() {
-        if(this.state.status != "Disabled")  
+        if(this.state.status !== "Disabled")  
           return {hoverPermission : true}
     }
     );
@@ -169,7 +159,7 @@ class Product extends Component {
   render() {
 
     let approvalMessage;
-    if(this.props.card__approval != '') {
+    if(this.props.card__approval !== '') {
       approvalMessage = <span className="card__approval">{this.props.card__approval}</span>;
     }
 
@@ -187,7 +177,7 @@ class Product extends Component {
     }
 
     let numberOfgifts;
-    if(this.props.card__checkbox != "fua-gra") {
+    if(this.props.card__checkbox !== "fua-gra") {
       numberOfgifts = <strong>{this.props.card__numberOfgifts}</strong>;
     }
     
