@@ -273,6 +273,10 @@ div[class$="left-decoration"] {
       transform: rotateZ(315deg) perspective(0.2em) rotateX(5deg);
       transform-origin: bottom; } }
 
+@supports (-ms-ime-align: auto) {
+  .card__corner-decoration {
+    display: none; } }
+
 .holder__item_disabled.card .card__corner-decoration {
   background: #b3b3b3; }
 
