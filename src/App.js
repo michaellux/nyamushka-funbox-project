@@ -165,7 +165,7 @@ class Product extends Component {
 
     let please;
     if(this.state.status === "Default") {
-      please = <span className="card__please">Чего сидишь? Порадуй котэ, <a className="card__link" href="#" onClick={this.handleCardCheckStateChange}>купи.</a></span>;
+      please = <span className="card__please">Чего сидишь? Порадуй котэ, <a className="card__link" href={"#" + this.props.card__checkbox} onClick={this.handleCardCheckStateChange}>купи.</a></span>;
     }
     else if(this.state.status === "Selected") {
       please = <span className="card__please_selected">{this.props.card__please_selected}</span>;
